@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>YouTube Paraphraser</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="container" class="container">
+            <div id="logo" class="logo-group">
+                <img class="logo" src="assets/yt.svg" alt="Logo">
+                <h1>YouTube Paraphraser</h1>
+            </div>
+            <div id="actions" class="actions">
+                <input id="url" class="url-field" type="url" placeholder="YouTube video URL">
+                <button id="go" class="go-button">Go</button>
+            </div>
+            <span id="load" class="loader" hidden></span>
+            <div id="summary">
+                <a id="thumb-url" target="_blank" href=""><img id="thumbnail" src="assets/placeholder.png"></a>
+                <h2 id="title"></h2>
+                <a id="author-url" target="_blank" href=""><h3 id="author"></h3></a>
+                <textarea id="paraphrased-text" class="paraphrased-field" readonly></textarea>
+                <button id="retry" class="retry-button">Summarize Another Video</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
