@@ -34,7 +34,8 @@ async function paraphrase(videoId) {
 
       if (json.result.error) {
         alert(`${json.result.error.error}: ${json.result.error.message}`);
-        window.location.href = window.location.origin; // Redirect to base URL on error
+        window.location.href =
+          window.location.origin + '/YouTube-Paraphraser-WebApp/';
       } else {
         const metadata = json.result.videoMetadata;
         showView('summary');
@@ -50,7 +51,8 @@ async function paraphrase(videoId) {
       }
     } catch (error) {
       alert('An error occurred: ' + error);
-      window.location.href = window.location.origin; // Redirect to base URL on error
+      window.location.href =
+        window.location.origin + '/YouTube-Paraphraser-WebApp/';
     }
   } else {
     alert('Please enter a valid YouTube URL.');
@@ -73,7 +75,8 @@ function showView(state) {
 
 document.getElementById('go').addEventListener('click', () => paraphrase());
 document.getElementById('retry').addEventListener('click', () => {
-  window.location.href = window.location.origin;
+  window.location.href =
+    window.location.origin + '/YouTube-Paraphraser-WebApp/';
 });
 
 // Extract "v" parameter from URL query string
