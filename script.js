@@ -50,7 +50,7 @@ async function paraphrase(videoId) {
       }
     } catch (error) {
       alert('An error occurred: ' + error);
-      location.reload();
+      window.location.href = window.location.origin;
     }
   } else {
     alert('Please enter a valid YouTube URL.');
