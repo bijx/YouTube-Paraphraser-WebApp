@@ -15,6 +15,11 @@ const authorElement = document.getElementById('author');
 const authorUrlElement = document.getElementById('author-url');
 const paraphrasedTextElement = document.getElementById('paraphrased-text');
 
+function reload() {
+  window.location.href =
+    window.location.origin + '/YouTube-Paraphraser-WebApp/';
+}
+
 async function paraphrase(videoId) {
   if (!videoId) {
     const url = urlField.value;
@@ -31,11 +36,11 @@ async function paraphrase(videoId) {
         `https://yt-paraphraser-v1-cgkyf4xf6a-uc.a.run.app/youtube/${videoId}/{}`
       );
       const json = await res.json();
-
       if (json.result.error) {
-        alert(`${json.result.error.error}: ${json.result.error.message}`);
-        window.location.href =
-          window.location.origin + '/YouTube-Paraphraser-WebApp/';
+        showAlert(
+          `${json.result.error.error}: ${json.result.error.message}`,
+          reload
+        );
       } else {
         const metadata = json.result.videoMetadata;
         showView('summary');
@@ -50,13 +55,12 @@ async function paraphrase(videoId) {
         paraphrasedTextElement.value = json.result.summary.trim();
       }
     } catch (error) {
-      alert('An error occurred: ' + error);
-      window.location.href =
-        window.location.origin + '/YouTube-Paraphraser-WebApp/';
+      showAlert('An error occurred: ' + error, reload);
     }
   } else {
-    alert('Please enter a valid YouTube URL.');
-    urlField.value = '';
+    showAlert('Please enter a valid YouTube URL.', () => {
+      urlField.value = '';
+    });
   }
 }
 
@@ -87,4 +91,34 @@ const videoId = urlParams.get('v');
 if (videoId) {
   console.log(videoId);
   paraphrase(videoId);
+}
+
+// Add this code to your script.js file or in a <script> tag after the modal HTML
+
+function showAlert(message, callback = null) {
+  const alertBox = document.getElementById('custom-alert');
+  const alertText = document.getElementById('custom-alert-text');
+  const closeButton = document.getElementById('custom-alert-close');
+
+  alertText.textContent = message;
+  alertBox.style.display = 'flex';
+
+  function closeAlert() {
+    alertBox.style.display = 'none';
+    closeButton.removeEventListener('click', closeAlert);
+    alertBox.removeEventListener('click', outsideClick);
+
+    if (callback) {
+      callback();
+    }
+  }
+
+  function outsideClick(e) {
+    if (e.target === alertBox) {
+      closeAlert();
+    }
+  }
+
+  closeButton.addEventListener('click', closeAlert);
+  alertBox.addEventListener('click', outsideClick);
 }
