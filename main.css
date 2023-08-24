@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=REM:wght@500;800&display=swap');
 
+:root {
+    --color-dark: #282C34;
+}
+
 body {
     font-family: 'REM', sans-serif;
     background-color: #f0f0f0;
@@ -38,13 +42,32 @@ a {
     text-decoration: none;
 }
 
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--color-dark);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    width: 100%;
+    position: fixed; 
+    bottom: 0;      
+    left: 0;
+    transition: 0.3s;
+}
+
+footer:hover {
+    color: white;
+    transition: 0.3s;
+}
+
 @keyframes slideIn {
     0% {align-items: baseline;}
     100% {align-items: center;}
 }
 
 .container {
-    background: #282C34;
+    background: var(--color-dark);
     height: 50vh;
     width: 30vw;
     border: 2px solid #454545; 
@@ -108,7 +131,7 @@ a {
     width: 50%;
     text-align: center;
     cursor: pointer;
-    margin-top: 16px; /*adds some space between the button and the preceding field*/
+    margin-top: 16px; 
     transition: background-color 0.3s ease;
 }
 
@@ -139,17 +162,18 @@ a {
     width: 100%;
     font-family: 'REM', sans-serif;
     font-weight: 500;
-    color: #A9A9A9; /* Lighter color for better contrast */
+    color: #A9A9A9;
     padding: 16px;
-    font-size: 1em; /* Slightly smaller font-size for more text space */
-    line-height: 1.5em; /* Space out lines of text */
+    font-size: 1em;
+    line-height: 1.5em;
     margin-top: 16px;
     resize: none;
-    overflow-y: auto; /* Enable vertical scroll */
-    white-space: pre-line; /* Break lines where necessary */
-    text-align: justify; /* Justify the text */
-    text-justify: inter-word; /* More even spacing between words */
+    overflow-y: auto;
+    white-space: pre-line;
+    text-align: justify;
+    text-justify: inter-word;
 }
+
 
 
 .paraphrased-field::-webkit-scrollbar {
