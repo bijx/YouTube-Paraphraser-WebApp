@@ -1,5 +1,9 @@
 # YouTube Paraphraser Web App
 
+[**Try out the app!**](https://bijx.github.io/YouTube-Paraphraser-WebApp/)
+**OR**
+[**Get the Chrome Extension for faster summaries!**](https://chrome.google.com/webstore/detail/youtube-paraphraser/gkgbmkfnmceicpkehajbcichphjmcgga)
+
 This project is a web-based client for the YouTube Paraphraser application. The simple interface is designed to take YouTube video URLs and leverage AI technology to generate paraphrased summaries of the video content. The application is developed using HTML, CSS, and JavaScript for simplicity.
 
 ## Features
