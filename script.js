@@ -33,7 +33,7 @@ async function paraphrase(videoId) {
     try {
       showView('loading');
       const res = await fetch(
-        `https://yt-paraphraser-v1-cgkyf4xf6a-uc.a.run.app/youtube/${videoId}/{}`
+        `https://yt-paraphraser-v1-2xko3wx73q-uc.a.run.app/youtube/${videoId}/{}`
       );
       const json = await res.json();
       if (json.result.error) {
