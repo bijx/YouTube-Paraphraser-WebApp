@@ -111,7 +111,6 @@ footer:hover {
 .logo {
     width: 45%;
     transition: width 0.5s ease;
-    user-drag: none;
     -webkit-user-drag: none;
 }
 
