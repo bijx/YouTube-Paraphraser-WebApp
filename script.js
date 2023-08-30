@@ -32,9 +32,7 @@ async function paraphrase(videoId) {
   if (videoId) {
     try {
       showView('loading');
-      const res = await fetch(
-        `https://yt-paraphraser-v1-2xko3wx73q-uc.a.run.app/youtube/${videoId}/{}`
-      );
+      const res = await fetch(`http://localhost:8081/youtube/${videoId}/{}`);
       const json = await res.json();
       if (json.result.error) {
         showAlert(
@@ -93,8 +91,6 @@ if (videoId) {
   paraphrase(videoId);
 }
 
-// Add this code to your script.js file or in a <script> tag after the modal HTML
-
 function showAlert(message, callback = null) {
   const alertBox = document.getElementById('custom-alert');
   const alertText = document.getElementById('custom-alert-text');
@@ -121,4 +117,37 @@ function showAlert(message, callback = null) {
 
   closeButton.addEventListener('click', closeAlert);
   alertBox.addEventListener('click', outsideClick);
+}
+
+// Promo Banner
+function openExtensionPage() {
+  var isChrome =
+    !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+  var isFirefox = typeof InstallTrigger !== 'undefined';
+  var isSafari =
+    /constructor/i.test(window.HTMLElement) ||
+    (function (p) {
+      return p.toString() === '[object SafariRemoteNotification]';
+    })(!window['safari'] || safari.pushNotification);
+
+  if (isChrome) {
+    window.open(
+      'https://chrome.google.com/webstore/detail/youtube-paraphraser/gkgbmkfnmceicpkehajbcichphjmcgga',
+      '_blank'
+    );
+  } else if (isFirefox) {
+    window.open(
+      'https://addons.mozilla.org/en-US/firefox/addon/youtube-paraphraser/',
+      '_blank'
+    );
+  }
+  // else if (isSafari) {
+  //   alert('Please visit the Safari Extensions page to get the extension.');
+  // }
+  else {
+    window.open(
+      'https://chrome.google.com/webstore/detail/youtube-paraphraser/gkgbmkfnmceicpkehajbcichphjmcgga',
+      '_blank'
+    ); // default to Chrome if not detected
+  }
 }
