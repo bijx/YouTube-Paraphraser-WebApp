@@ -1,3 +1,8 @@
+## THIS APP IS NO LONGER ONLINE
+Thank you to everyone who used the YouTube Paraphraser application! It was a very cool experiment to setup and clearly it proved useful for so many of you. I had to take down the backend server interimly, but hope to spin it up again some time in the future.
+
+
+
 # YouTube Paraphraser Web App
 
 [**Try out the app!**](https://bijx.github.io/YouTube-Paraphraser-WebApp/)
