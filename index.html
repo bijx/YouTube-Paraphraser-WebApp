@@ -10,16 +10,75 @@
         </script>
         <title>YouTube Paraphraser</title>
         <link rel="stylesheet" href="main.css">
+        <style>
+            .outdated-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+            
+            .outdated-card {
+                background-color: white;
+                padding: 2rem;
+                border-radius: 8px;
+                max-width: 500px;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            .outdated-card h2 {
+                color: #ff0000;
+                margin-top: 0;
+            }
+            
+            .outdated-card p {
+                margin: 1rem 0;
+                font-size: 1.1rem;
+            }
+            
+            .v2-button {
+                background-color: #ff0000;
+                color: white;
+                border: none;
+                padding: 0.8rem 1.5rem;
+                font-size: 1.1rem;
+                border-radius: 4px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 1rem;
+            }
+            
+            .v2-button:hover {
+                background-color: #cc0000;
+            }
+        </style>
     </head>
     <body>
+        <div class="outdated-overlay">
+            <div class="outdated-card">
+                <h2>This version is outdated</h2>
+                <p>This version of YouTube Paraphraser is no longer supported.</p>
+                <p>Please use the improved V2 site for better performance and features.</p>
+                <a href="https://youtube-paraphraser-v2.vercel.app/" class="v2-button">Go to YouTube Paraphraser V2</a>
+            </div>
+        </div>
+        
         <div id="container" class="container">
             <div id="logo" class="logo-group">
                 <img class="logo" src="assets/yt.svg" alt="Logo">
                 <h1>YouTube Paraphraser</h1>
             </div>
             <div id="actions" class="actions">
-                <input id="url" class="url-field" type="url" placeholder="YouTube video URL">
-                <button id="go" class="go-button">Go</button>
+                <input id="url" class="url-field" type="url" placeholder="YouTube video URL" disabled>
+                <button id="go" class="go-button" disabled>Go</button>
             </div>
             <span id="load" class="loader" hidden></span>
             <div id="summary">
